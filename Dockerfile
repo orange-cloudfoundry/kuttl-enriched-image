@@ -1,4 +1,4 @@
-FROM kudobuilder/kuttl:v0.13.0
+FROM kudobuilder/kuttl:v0.14.0
 
 ENV VERSION="v0.3.20"
 
