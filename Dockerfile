@@ -8,5 +8,5 @@ RUN echo "Installing goss and kgoss version ${VERSION}" ; \
     curl -L "https://raw.githubusercontent.com/goss-org/goss/${VERSION}/extras/kgoss/kgoss" -o /usr/local/bin/kgoss && \
     chmod +rx /usr/local/bin/kgoss && \
     /usr/local/bin/goss -v && \
-    /usr/local/bin/kgoss -v
+    /usr/local/bin/kgoss || echo "Installation done."
 
