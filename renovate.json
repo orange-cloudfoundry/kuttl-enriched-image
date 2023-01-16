@@ -16,6 +16,29 @@
         "gberche-orange"
       ]
     }
+  ],
+
+  "regexManagers": [
+    {
+      "description": "GOSS version in DockerFile https://regex101.com/r/pRv0bq/1",
+      "fileMatch": ["Dockerfile$"],
+      "matchStrings": [
+        "/ENV GOSS_VERSION=\"(?<currentValue>.*)\""
+      ],
+      "depNameTemplate": "goss-org/goss",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+    },
+    {
+      "description": "YTT version in DockerFile https://regex101.com/r/pRv0bq/1",
+      "fileMatch": ["Dockerfile$"],
+      "matchStrings": [
+        "/ENV YTT_VERSION=\"(?<currentValue>.*)\""
+      ],
+      "depNameTemplate": "vmware-tanzu/carvel-ytt",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+    }
   ]
 
 }
