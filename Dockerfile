@@ -15,7 +15,7 @@ RUN echo "Installing carvel ytt version ${YTT_VERSION}" ; \
     echo "Installing goss and kgoss version ${GOSS_VERSION}" ; \
     curl -L "https://github.com/goss-org/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss && \
     chmod +rx /usr/local/bin/goss && \
-    curl -LO https://raw.githubusercontent.com/orange-cloudfoundry/goss/kgoss-kubectl-opts/extras/kgoss/kgoss -o /usr/local/bin/kgoss && \
+    curl -L https://raw.githubusercontent.com/orange-cloudfoundry/goss/kgoss-kubectl-opts/extras/kgoss/kgoss -o /usr/local/bin/kgoss && \
     chmod +rx /usr/local/bin/kgoss && \
     /usr/local/bin/ytt --version && \
     /usr/local/bin/goss -v && \
