@@ -10,7 +10,7 @@ ENV YTT_VERSION="v0.44.1"
 
 # Pending merge of https://github.com/goss-org/goss/pull/792 and https://github.com/kudobuilder/kuttl/pull/448
 RUN echo "Installing carvel ytt version ${YTT_VERSION}" ; \
-    curl -L "https://github.com/goss-org/goss/releases/download/${YTT_VERSION}/ytt-linux-amd64" -o /usr/local/bin/ytt && \
+    curl -L "https://github.com/vmware-tanzu/carvel-ytt/releases/download/${YTT_VERSION}/ytt-linux-amd64" -o /usr/local/bin/ytt && \
     chmod +rx /usr/local/bin/ytt && \
     echo "Installing goss and kgoss version ${GOSS_VERSION}" ; \
     curl -L "https://github.com/goss-org/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss && \
