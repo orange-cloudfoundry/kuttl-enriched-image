@@ -1,6 +1,6 @@
 FROM kudobuilder/kuttl:v0.15.0
 
-ENV GOSS_VERSION="v0.3.21"
+ENV GOSS_VERSION="v0.3.22"
 ENV YTT_VERSION="v0.44.3"
 
 #    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.26.0/bin/linux/amd64/kubectl && \
