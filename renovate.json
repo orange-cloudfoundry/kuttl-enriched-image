@@ -3,7 +3,8 @@
   "extends": [
     "config:base",
     ":disableRateLimiting",
-    ":rebaseStalePrs"
+    ":rebaseStalePrs",
+    "github>orange-cloudfoundry/renovate-presets"
   ],
 
   "packageRules": [
