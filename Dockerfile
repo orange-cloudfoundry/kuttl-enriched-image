@@ -1,4 +1,12 @@
+## Extract from kuttl docker file:
+# FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
+# RUN microdnf install vim tar gzip
 FROM kudobuilder/kuttl:v0.15.0
+
+# See https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/building_running_and_managing_containers/index#proc_adding-software-in-a-minimal-ubi-container_assembly_adding-software-to-a-ubi-container
+
+RUN echo "Installing additional debug tools" && \
+    microdnf install findutils
 
 ENV GOSS_VERSION="v0.3.23"
 ENV YTT_VERSION="v0.45.3"
