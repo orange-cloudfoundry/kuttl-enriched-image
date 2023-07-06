@@ -31,6 +31,16 @@
       "versioningTemplate": "regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
+      "description": "YQ version in DockerFile",
+      "fileMatch": ["Dockerfile$"],
+      "matchStrings": [
+        "ENV YQ_VERSION=\"(?<currentValue>.*)\""
+      ],
+      "depNameTemplate": "mikefarah/yq",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+    },
+    {
       "description": "YTT version in DockerFile https://regex101.com/r/pRv0bq/1",
       "fileMatch": ["Dockerfile$"],
       "matchStrings": [
