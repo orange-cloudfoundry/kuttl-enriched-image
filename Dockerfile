@@ -18,7 +18,7 @@ ENV YQ_VERSION="v4.34.1"
 
 
 # Pending merge of https://github.com/goss-org/goss/pull/792 and https://github.com/kudobuilder/kuttl/pull/448
-RUN echo "Installing carvel ytt version ${YQ_VERSION}" ; \
+RUN echo "Installing yq version ${YQ_VERSION}" ; \
     curl -L "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq && \
     chmod +rx /usr/local/bin/yq && \
     echo "Installing yq version ${YTT_VERSION}" ; \
