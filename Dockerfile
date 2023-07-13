@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 ENV KUTTL_VERSION="0.14.0"
 ENV GOSS_VERSION="v0.3.23"
 ENV YTT_VERSION="v0.45.3"
-ENV YQ_VERSION="v4.34.1"
+ENV YQ_VERSION="v4.34.2"
 
 #    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.26.0/bin/linux/amd64/kubectl && \
 #    chmod +x ./kubectl && \
