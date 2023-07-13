@@ -25,7 +25,7 @@ ENV INIT_PACKAGES="apt-transport-https ca-certificates curl openssl sudo unzip" 
 ADD tools/* /tmp/tools/
 ADD tools/completion/* /tmp/tools/completion/
 
-RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 "$3" ; } && \
+RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 "$3" ; chmod +x /usr/local/bin/$2 } && \
     installZip() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | gunzip > /usr/local/bin/$2 ; } && \
     installTar() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | tar -x -C /tmp && mv /tmp/$4 /usr/local/bin/$2 ; } && \
     installTargz() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | tar -xz -C /tmp && mv /tmp/$4 /usr/local/bin/$2 ; } && \
@@ -46,7 +46,10 @@ RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 
 
 
 # Pending merge of https://github.com/goss-org/goss/pull/792 and https://github.com/kudobuilder/kuttl/pull/448
-RUN echo "Installing kuttl version ${KUTTL_VERSION}" ; \
+RUN echo "Installing yq version ${YQ_VERSION}" ; \
+    curl -L "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq && \
+    chmod +rx /usr/local/bin/yq && \
+    echo "Installing kuttl version ${KUTTL_VERSION}" ; \
     curl -L "https://github.com/kudobuilder/kuttl/releases/download/v${KUTTL_VERSION}/kubectl-kuttl_${KUTTL_VERSION}_linux_x86_64" -o /usr/local/bin/kubectl-kuttl && \
     chmod +rx /usr/local/bin/kubectl-kuttl && \
     echo "Installing ytt version ${YTT_VERSION}" ; \
@@ -55,10 +58,10 @@ RUN echo "Installing kuttl version ${KUTTL_VERSION}" ; \
     echo "Installing goss and kgoss version ${GOSS_VERSION}" ; \
     curl -L "https://github.com/goss-org/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss && \
     chmod +rx /usr/local/bin/goss && \
-    curl -L https://raw.githubusercontent.com/orange-cloudfoundry/goss/kgoss-kubectl-opts/extras/kgoss/kgoss -o /usr/local/bin/kgoss && \
-    chmod +rx /usr/local/bin/kgoss && \
     /usr/local/bin/kubectl-kuttl --version && \
     /usr/local/bin/ytt --version && \
+    /usr/local/bin/yq --version && \
+    /usr/local/bin/jq --version && \
     /usr/local/bin/goss -v && \
     /usr/local/bin/kubectl version \
     || echo "Installation done."
