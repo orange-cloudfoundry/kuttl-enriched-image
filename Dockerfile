@@ -60,6 +60,6 @@ RUN echo "Installing kuttl version ${KUTTL_VERSION}" ; \
     /usr/local/bin/kubectl-kuttl --version && \
     /usr/local/bin/ytt --version && \
     /usr/local/bin/goss -v && \
-    /usr/local/bin/kubectl version && \
+    /usr/local/bin/kubectl version \
     || echo "Installation done."
 
