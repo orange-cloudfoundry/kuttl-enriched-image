@@ -25,7 +25,7 @@ ENV INIT_PACKAGES="apt-transport-https ca-certificates curl openssl sudo unzip" 
 ADD tools/* /tmp/tools/
 ADD tools/completion/* /tmp/tools/completion/
 
-RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 "$3" ; chmod +x /usr/local/bin/$2 } && \
+RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 "$3" ; chmod 755 /usr/local/bin/$2 } && \
     installZip() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | gunzip > /usr/local/bin/$2 ; } && \
     installTar() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | tar -x -C /tmp && mv /tmp/$4 /usr/local/bin/$2 ; } && \
     installTargz() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | tar -xz -C /tmp && mv /tmp/$4 /usr/local/bin/$2 ; } && \
