@@ -66,3 +66,7 @@ RUN echo "Installing yq version ${YQ_VERSION}" ; \
     /usr/local/bin/kubectl version \
     || echo "Installation done."
 
+# Use bash by default instead of dash (Debian Almquist Shell) : kuttl explicitly invokes `sh -c`
+# See https://wiki.ubuntu.com/DashAsBinSh
+# PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN ln -s /usr/bin/bash /usr/local/sbin/sh
