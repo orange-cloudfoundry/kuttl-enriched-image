@@ -16,7 +16,15 @@
       "assignees": [
         "gberche-orange"
       ]
-    }
+    },
+    // See https://docs.renovatebot.com/configuration-options/#ignoreunstable
+    {
+      "description": "Accept release candidates for goss",
+      "matchPackageNames": [
+        "goss-org/goss"
+      ],
+      ignoreUnstable: false
+    },
   ],
 
   "regexManagers": [
