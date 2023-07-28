@@ -22,8 +22,8 @@ ENV INIT_PACKAGES="apt-transport-https ca-certificates curl openssl sudo unzip" 
     OS_ARCH_1="x86_64" \
     OS_ARCH_2="amd64"
 
-ADD tools/* /tmp/tools/
-ADD tools/completion/* /tmp/tools/completion/
+COPY tools/* /tmp/tools/
+COPY tools/completion/* /tmp/tools/completion/
 
 RUN installBinary() { printf "\n=> Add $1 CLI\n" ; curl -sSLo /usr/local/bin/$2 "$3" ; chmod 755 /usr/local/bin/$2 ; } && \
     installZip() { printf "\n=> Add $1 CLI\n" ; curl -sSL "$3" | gunzip > /usr/local/bin/$2 ; } && \
